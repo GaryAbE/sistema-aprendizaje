@@ -1,0 +1,241 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─────────────────────────────────────────────
+//  USUARIOS
+// ─────────────────────────────────────────────
+model User {
+  id        String   @id @default(cuid())
+  nombre    String
+  usuario   String   @unique  // nombre de usuario para login
+  pin       String            // bcrypt hash del PIN
+  rol       Rol      @default(ESTUDIANTE)
+  grado     Int      @default(3)   // 1–6
+  idioma    String   @default("es") // es | ay | qu | gu
+  comunidad String   @default("")
+  activo    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Tutoría entre pares
+  padrinoId String?
+  padrino   User?   @relation("Tutoria", fields: [padrinoId], references: [id])
+  ahijados  User[]  @relation("Tutoria")
+
+  // Relación Familia -> Hijo (Estudiante)
+  hijoId    String?
+  hijo      User?    @relation("FamiliaHijo", fields: [hijoId], references: [id])
+  padres    User[]   @relation("FamiliaHijo")
+
+  // Relaciones
+  progresos              Progreso[]
+  producciones           Produccion[]
+  mensajesEnviados       Mensaje[]         @relation("MensajeEmisor")
+  mensajesRecibidos      Mensaje[]         @relation("MensajeReceptor")
+  foroComentarios        ForoComentario[]
+  coevaluacionesHechas   Coevaluacion[]    @relation("CoevalAutor")
+  evaluacionesFamiliares EvaluacionFamiliar[]
+  alertasPadrino         AlertaPadrino[]   @relation("AlertaAhijado")
+  alertasRecibidas       AlertaPadrino[]   @relation("AlertaPadrino")
+}
+
+enum Rol {
+  ESTUDIANTE
+  PADRINO
+  MAESTRO
+  FAMILIA
+}
+
+// ─────────────────────────────────────────────
+//  TEMAS / UNIDADES DIDÁCTICAS
+// ─────────────────────────────────────────────
+model Tema {
+  id          String   @id @default(cuid())
+  nombre      String
+  slug        String   @unique  // ej: "fracciones"
+  grado       Int               // 1, 2, 3
+  descripcion String?
+  activo      Boolean  @default(true)
+  orden       Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  progresos       Progreso[]
+  producciones    Produccion[]
+  foroComentarios ForoComentario[]
+  contenidos      ContenidoTema[]
+}
+
+// ─────────────────────────────────────────────
+//  PROGRESO (bloqueo de momentos)
+// ─────────────────────────────────────────────
+model Progreso {
+  id           String    @id @default(cuid())
+  userId       String
+  user         User      @relation(fields: [userId], references: [id])
+  temaId       String
+  tema         Tema      @relation(fields: [temaId], references: [id])
+  momento      Momento
+  completado   Boolean   @default(false)
+  completadoAt DateTime?
+  updatedAt    DateTime  @updatedAt
+
+  @@unique([userId, temaId, momento])
+}
+
+enum Momento {
+  PRACTICA
+  TEORIA
+  VALORACION
+  PRODUCCION
+}
+
+// ─────────────────────────────────────────────
+//  PRODUCCIÓN / PORTAFOLIO
+// ─────────────────────────────────────────────
+model Produccion {
+  id              String    @id @default(cuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  temaId          String
+  tema            Tema      @relation(fields: [temaId], references: [id])
+  momento         Momento
+  tipo            String    // "audio" | "foto" | "texto" | "video"
+  urlArchivo      String?
+  nombreArchivo   String?
+  reflexion       String?   // Texto de valoración/reflexión
+  pendienteSync   Boolean   @default(false)  // Modo offline
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Evaluación cualitativa
+  autoEval        String?   // "logrado" | "proceso" | "ayuda"
+  feedbackPadrino String?
+  feedbackMaestro String?
+  calificadoAt    DateTime?
+
+  coevaluaciones  Coevaluacion[]
+}
+
+// ─────────────────────────────────────────────
+//  MENSAJES ENTRE PADRINO Y AHIJADO
+// ─────────────────────────────────────────────
+model Mensaje {
+  id         String   @id @default(cuid())
+  emisorId   String
+  emisor     User     @relation("MensajeEmisor", fields: [emisorId], references: [id])
+  receptorId String
+  receptor   User     @relation("MensajeReceptor", fields: [receptorId], references: [id])
+  contenido  String
+  tipo       String   @default("texto")  // "texto" | "audio"
+  urlAudio   String?
+  leido      Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+// ─────────────────────────────────────────────
+//  FORO DE VALORACIÓN
+// ─────────────────────────────────────────────
+model ForoComentario {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  temaId        String
+  tema          Tema     @relation(fields: [temaId], references: [id])
+  contenido     String
+  tipo          String   @default("texto")  // "texto" | "audio"
+  urlAudio      String?
+  
+  // Respuestas (del maestro o compañeros)
+  parentId      String?
+  parent        ForoComentario? @relation("ForoRespuestas", fields: [parentId], references: [id])
+  respuestas    ForoComentario[] @relation("ForoRespuestas")
+
+  pendienteSync Boolean  @default(false)
+  createdAt     DateTime @default(now())
+}
+
+model RecursoEducativo {
+  id              String         @id @default(cuid())
+  contenidoTemaId String
+  contenidoTema   ContenidoTema  @relation(fields: [contenidoTemaId], references: [id])
+  tipo            String         // "video" | "documento" | "juego" | "imagen"
+  url             String
+  nombre          String?
+  createdAt       DateTime       @default(now())
+}
+
+
+// ─────────────────────────────────────────────
+//  COEVALUACIÓN ("dos estrellas y un deseo")
+// ─────────────────────────────────────────────
+model Coevaluacion {
+  id           String     @id @default(cuid())
+  autorId      String
+  autor        User       @relation("CoevalAutor", fields: [autorId], references: [id])
+  produccionId String
+  produccion   Produccion @relation(fields: [produccionId], references: [id])
+  tipo         String     // "estrella1" | "estrella2" | "deseo" | "megusta"
+  comentario   String?
+  createdAt    DateTime   @default(now())
+
+  @@unique([autorId, produccionId, tipo])
+}
+
+// ─────────────────────────────────────────────
+//  EVALUACIÓN FAMILIAR / COMUNITARIA
+// ─────────────────────────────────────────────
+model EvaluacionFamiliar {
+  id           String   @id @default(cuid())
+  estudianteId String
+  estudiante   User     @relation(fields: [estudianteId], references: [id])
+  temaId       String?
+  tipo         String   @default("audio")  // "audio" | "texto"
+  urlAudio     String?
+  comentario   String?
+  validado     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+}
+
+// ─────────────────────────────────────────────
+//  ALERTAS PARA PADRINO
+// ─────────────────────────────────────────────
+model AlertaPadrino {
+  id         String   @id @default(cuid())
+  ahijadoId  String
+  ahijado    User     @relation("AlertaAhijado", fields: [ahijadoId], references: [id])
+  padrinoId  String
+  padrino    User     @relation("AlertaPadrino", fields: [padrinoId], references: [id])
+  tipo       String   // "inactividad" | "duda" | "logro"
+  mensaje    String
+  leida      Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+// ─────────────────────────────────────────────
+//  CONTENIDO POR TEMA E IDIOMA
+// ─────────────────────────────────────────────
+model ContenidoTema {
+  id                   String  @id @default(cuid())
+  temaId               String
+  tema                 Tema    @relation(fields: [temaId], references: [id])
+  momento              Momento
+  idioma               String  // "es" | "ay" | "qu" | "gu"
+  titulo               String
+  descripcion          String?
+  urlVideo             String?
+  urlInfografia        String?
+  urlAudioInstruccion  String?
+  textoPreguntaForo    String? // Pregunta para el foro de Valoración
+  requiereEntrega      Boolean @default(true) // Si requiere que el estudiante suba un archivo
+  tipoActividad        String  @default("evidencia") // "evidencia", "juego", "lectura"
+  tipoJuego            String? // "quiz" | "divide-pan" | "otros"
+  orden                Int     @default(0)
+  
+  recursos             RecursoEducativo[]
+}

@@ -1,0 +1,64 @@
+CREACIÓN DE ENTORNOS VIRTUALES DE APRENDIZAJE (EVA) Y AMBIENTES VIRTUALES DE APRENDIZAJE (AVA) PARA EL NIVEL PRIMARIO
+1. Objetivo de la Actividad
+Que el futuro maestro o maestra desarrolle competencias pedagógicas, técnicas y didácticas para diseñar, implementar y evaluar Entornos Virtuales de Aprendizaje (EVA) y Ambientes Virtuales de Aprendizaje (AVA) que complementen la educación presencial en el nivel primario, promoviendo la intraculturalidad, interculturalidad, el uso de tecnologías propias y la producción de conocimientos comunitarios.
+2. Marco Teórico Conceptual
+2.1. Definiciones Clave
+* Entorno Virtual de Aprendizaje (EVA): Se refiere al espacio físico y tecnológico (plataformas, aplicaciones, redes) donde se alojan las interacciones educativas. Incluye la infraestructura tecnológica, los dispositivos y la conectividad.
+* Ambiente Virtual de Aprendizaje (AVA): Es la dimensión pedagógica y social construida dentro de ese entorno. Es el espacio donde se genera interacción, diálogo de saberes, construcción colectiva y mediación docente. En el contexto boliviano, un AVA debe ser vivencial, productivo y comunitario.
+2.2. Enfoque del Modelo Educativo sociocomunitario Boliviano
+* Vivir Bien (Suma Qamaña / Ñandereko): Los AVA deben promover la armonía con la naturaleza, la comunidad y el conocimiento. No se trata solo de consumir información, sino de generar aprendizajes que aporten al bien común.
+* Educación Descolonizadora: Los AVA deben incorporar, contenidos en lenguas originarias y valorando los conocimientos locales.
+* Currículo Base del Nivel Primario: Los AVA deben articularse a los Campos de Saberes y Conocimientos (Cosmovisión, Pensamiento y Filosofía; Comunidad y Sociedad; Vida Tierra Territorio; Ciencia Tecnología y Producción) y a los Ejes Articuladores (Intraculturalidad, Interculturalidad, Plurilingüismo y Producción).
+2.3. Principios Pedagógicos para AVA en Primaria
+* Integración de Saberes: Conocimiento científico + tecnología + saberes comunitarios.
+* Aprendizaje Situado: Las actividades virtuales deben partir de la realidad del niño, su comunidad y su familia.
+* Flexibilidad: Considerar la diversidad de acceso a internet y dispositivos en el contexto boliviano (urbano, periurbano y rural). (OPCIONAL)
+* Seguridad y Protección: Priorizar la seguridad digital de los niños y niñas (datos personales, interacciones seguras).
+3. Didáctica para la Creación de AVA en Nivel Primario
+3.1. Estructura Didáctica de un AVA (Basada en el Modelo Socio-comunitario Productivo)
+Al diseñar un AVA, cada actividad debe organizarse en cuatro momentos, adaptados al entorno virtual:
+
+
+MomentoDescripción en el AVAEjemplo para Primaria1. PrácticaActividad inicial que recupera la experiencia previa y el contexto. Uso de imágenes, audios en lengua materna, encuestas rápidas."Sube un dibujo o un audio contando cómo tu familia prepara la tierra para sembrar."2. TeoríaPresentación de nuevos conocimientos a través de recursos multimediales (videos cortos, infografías interactivas, podcasts).Video de 3 minutos sobre la fotosíntesis, con narración en aymara y subtítulos en español.3. ValoraciónReflexión crítica sobre la utilidad del conocimiento para la comunidad. Opiniones, foros de debate, diarios de aprendizaje virtuales.Foro: "¿Por qué es importante cuidar las semillas nativas para nuestra comunidad?"4. ProducciónCreación de un producto tangible o intangible que resuelva una necesidad comunitaria. Puede ser individual o colectivo.Crear un "Museo Virtual de Semillas" con dibujos, fotos y audios subidos por los estudiantes.3.2. Herramientas y Plataformas Recomendadas (Software Libre y Accesible)
+* Plataforma Integral: Moodle (permite crear un EVA estructurado con los cuatro momentos). Google Classroom como alternativa sencilla.
+* Recursos Interactivos: H5P (para crear contenido interactivo dentro de Moodle), Educaplay, Wordwall (para juegos educativos).
+* Comunicación Sincrónica: Jitsi Meet (código abierto), Zoom o Google Meet.
+* Comunicación Asincrónica: WhatsApp (para contextos de baja conectividad), Telegram, Foros en Moodle.
+* Creación Colaborativa: Padlet (mural virtual), Canva (diseño), Wikis integradas.
+* Contenidos Offline: Kolibri (plataforma offline para escuelas sin internet), creación de materiales descargables (PDF, videos descargables por WhatsApp).
+3.3. Estrategias Didácticas Específicas para Primaria
+* Microaprendizaje: Lecciones cortas (10 a 15 minutos) con un solo objetivo.
+* Aprendizaje Basado en Proyectos (ABP) Comunitario: El proyecto virtual (ej. "Huerto familiar virtual") integra varias áreas de conocimiento.
+* Uso de Lenguas Originarias: Grabar instrucciones en quechua, aymara, guaraní, etc. Usar traductores comunitarios.
+* Tutoría Entre Pares: Asignar "padrinos/madrinas digitales" entre estudiantes de grados superiores e inferiores.
+4. Evaluación: Orientaciones Metodológicas
+La evaluación en AVA para primaria debe ser cualitativa, continua, participativa y productiva. No se trata de calificar el uso de la tecnología, sino el desarrollo de competencias.
+4.1. Tipos de Evaluación y Herramientas
+Tipo de EvaluaciónEnfoqueInstrumentos / Herramientas en AVAAutoevaluaciónEl estudiante reflexiona sobre su propio proceso.Rúbricas simples en formato digital (emojis, semáforos), Diarios de aprendizaje en audio (WhatsApp), listas de cotejo con iconos.CoevaluaciónEvaluación entre compañeros, guiada por el docente.Foros con "me gusta" constructivos, revisión de producciones en Padlet con comentarios positivos, uso de "dos estrellas y un deseo".HeteroevaluaciónEvaluación del docente.Portafolios digitales (evidencias de producción), evaluación escrita y oral, observación en clases sincrónicas, revisión de participaciones en foros.Evaluación ComunitariaInvolucra a la familia y la comunidad (en el contexto de AVA, la familia es un soporte clave).Registro de entrevistas a familiares sobre el tema, producción de un recurso útil para la comunidad (afiche digital en lengua originaria).4.2. Criterios de Evaluación (Adaptados al Nivel Primario)
+1. Participación y Colaboración: Interacción respetuosa en foros, trabajos grupales virtuales.
+2. Producción Creativa: Originalidad del producto (cuento, maqueta digital, video) vinculado a su realidad.
+3. Uso de Tecnología con Sentido: Capacidad de usar la herramienta para aprender, no solo por usarla.
+4. Reflexión Crítica: Capacidad de relacionar lo aprendido con su vida y su comunidad.
+4.3. Instrumentos de Evaluación (Orientaciones para su creación)
+* Rúbricas Digitales: Crear rúbricas en Google Sheets o Corubrics (dentro de Moodle) con criterios claros y lenguaje amigable para niños. Escala: "Lo logré", "Estoy en camino", "Necesito ayuda".
+* Portafolio Digital Colectivo: Utilizar Google Sites o una carpeta compartida en Drive donde los estudiantes suban sus evidencias (fotos de trabajos manuales, videos cortos, audios).
+* Listas de Cotejo en Formularios: Usar Google Forms para registrar la entrega de actividades, participación en clases sincrónicas y colaboración.
+* Foros de Valoración: No calificar cantidad de mensajes, sino la calidad de la reflexión y la respuesta a los compañeros.
+4.4. Adaptaciones por Baja Conectividad (Principio de Inclusión)
+* Evaluación Asincrónica Extendida: Dar plazos flexibles.
+* Evaluación Offline: Permitir que los estudiantes realicen actividades en su cuaderno, tomen foto y la envíen por WhatsApp (si no tienen datos, que la envíen cuando tengan acceso).
+* Evaluación por Teléfono: Llamadas breves para dialogar sobre el proceso de aprendizaje.
+5. Recomendaciones Finales para el Estudiante en Formación
+1. Diseñe pensando en la diversidad: No asuma que todos tienen internet de banda ancha o una computadora. Diseñe estrategias que funcionen con datos móviles, WhatsApp y materiales impresos complementarios.
+2. Sea facilitador, no solo transmisor: En el AVA, su rol es guiar, motivar y mediar. Genere vídeos de bienvenida cortos, esté presente en foros, pero evite la sobrecarga de información.
+3. Incorpore la cultura y la lengua: Un AVA en Bolivia debe reflejar su plurinacionalidad. Incluya emojis, imágenes, personajes y narrativas locales. Use lenguas originarias en las instrucciones y en los contenidos.
+4. Privacidad y protección: Nunca publique datos personales de los estudiantes. Utilice entornos cerrados (aulas virtuales con contraseña) y eduque a los niños sobre el uso seguro de internet.
+5. Evaluar para aprender: La evaluación en AVA debe ser un proceso de retroalimentación constante. Comente las producciones de manera personalizada y motive la mejora continua.
+
+Resumen de la creación de AVA y EVA:
+Diseñe un EVA y AVA para un curso de 3° de primaria (seleccione una comunidad específica, por ejemplo, área rural andina, urbana, o periurbana). Debe incluir:
+* Plataforma o herramientas elegidas (justificadas por el contexto).
+* Una secuencia didáctica aplicando los cuatro momentos (Práctica, Teoría, Valoración, Producción).
+* Un instrumento de evaluación (rúbrica o lista de cotejo) con criterios alineados al enfoque socio-comunitario productivo.
+* Una estrategia de inclusión para estudiantes con conectividad limitada.
+
